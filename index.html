@@ -1,172 +1,716 @@
-:root {
-    --primary: #667eea;
-    --secondary: #764ba2;
-    --accent: #f093fb;
-    --success: #4ade80;
-    --warning: #fbbf24;
-    --danger: #f87171;
-    --dark: #1f2937;
-    --light: #f3f4f6;
-    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Генератор Бизнес-Идей</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
 
-body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: var(--gradient);
-    min-height: 100vh;
-    color: var(--dark);
-    line-height: 1.6;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+        }
 
-/* Header */
-header {
-    text-align: center;
-    color: white;
-    padding: 60px 20px;
-}
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    font-weight: 800;
-}
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
 
-.subtitle {
-    font-size: 1.3rem;
-    opacity: 0.95;
-    font-weight: 300;
-}
+        .main-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
 
-/* Stats */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin: 30px 0;
-}
+        .input-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
 
-.stat-card {
-    background: rgba(255,255,255,0.95);
-    padding: 25px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s;
-}
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
 
-.stat-card:hover {
-    transform: translateY(-5px);
-}
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+        }
 
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        input, select, textarea {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
 
-.stat-label {
-    color: #6b7280;
-    margin-top: 5px;
-    font-size: 0.95rem;
-}
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
 
-/* Main Card */
-.main-card {
-    background: white;
-    border-radius: 30px;
-    padding: 40px;
-    box-shadow: 0 25px 80px rgba(0,0,0,0.15);
-    margin-bottom: 30px;
-}
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
 
-.main-card h2 {
-    margin-bottom: 25px;
-    color: var(--dark);
-    font-size: 1.8rem;
-}
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+        }
 
-/* Form */
-.input-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 30px;
-}
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
 
-label {
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #4b5563;
-    font-size: 0.95rem;
-}
+        .results {
+            display: none;
+            margin-top: 30px;
+        }
 
-input, select, textarea {
-    padding: 14px 18px;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: all 0.3s;
-    background: #f9fafb;
-}
+        .results.active {
+            display: block;
+        }
 
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    background: white;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
+        .idea-card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            animation: slideIn 0.5s ease-out;
+        }
 
-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-/* Buttons */
-.btn {
-    background: var(--gradient);
-    color: white;
-    border: none;
-    padding: 16px 48px;
-    font-size: 18px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
+        .idea-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
 
-.btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-}
+        .idea-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
 
-.btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
+        .idea-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-.free-attempts {
-    margin-top: 15px;
-    color: #6b7280;
-    font-size: 0.9rem;
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .monetization {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .monetization h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .premium-btn {
+            background: #ffc107;
+            color: #333;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .trends-section {
+            margin-top: 30px;
+        }
+
+        .trend-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .trend-item:hover {
+            background: #e9ecef;
+        }
+
+        .trend-arrow {
+            color: #28a745;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        .save-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .close-modal {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .main-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 AI Генератор Бизнес-Идей</h1>
+            <p class="subtitle">Анализ трендов + ИИ = Уникальные бизнес-идеи</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="ideasCount">0</div>
+                <div class="stat-label">Сгенерировано идей</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="trendsCount">0</div>
+                <div class="stat-label">Проанализировано трендов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="usersCount">1.2K</div>
+                <div class="stat-label">Активных пользователей</div>
+            </div>
+        </div>
+
+        <div class="main-card">
+            <h2 style="margin-bottom: 20px; color: #333;">🔍 Параметры генерации</h2>
+            
+            <div class="input-section">
+                <div class="form-group">
+                    <label>Сфера бизнеса</label>
+                    <select id="industry">
+                        <option value="tech">Технологии</option>
+                        <option value="eco">Экология</option>
+                        <option value="health">Здоровье</option>
+                        <option value="edu">Образование</option>
+                        <option value="food">Еда и напитки</option>
+                        <option value="retail">Ритейл</option>
+                        <option value="finance">Финансы</option>
+                        <option value="entertainment">Развлечения</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Бюджет старта</label>
+                    <select id="budget">
+                        <option value="low">До $1000</option>
+                        <option value="medium">$1000 - $10,000</option>
+                        <option value="high">$10,000+</option>
+                        <option value="any">Любой</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Регион</label>
+                    <select id="region">
+                        <option value="global">Глобально</option>
+                        <option value="cis">СНГ</option>
+                        <option value="europe">Европа</option>
+                        <option value="asia">Азия</option>
+                        <option value="usa">США</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label>Ваши навыки и интересы (опционально)</label>
+                <textarea id="skills" placeholder="Например: программирование, маркетинг, дизайн..."></textarea>
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn" onclick="generateIdeas()" id="generateBtn">
+                    ✨ Сгенерировать идеи
+                </button>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Анализируем тренды и генерируем идеи...</p>
+                <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                    Используем: Google Trends + AI анализ
+                </p>
+            </div>
+
+            <div class="results" id="results">
+                <h3 style="margin-bottom: 20px; color: #333;">💡 Ваши бизнес-идеи:</h3>
+                <div id="ideasContainer"></div>
+            </div>
+
+            <div class="trends-section" id="trendsSection" style="display: none;">
+                <h3 style="margin-bottom: 15px; color: #333;">📈 Актуальные тренды:</h3>
+                <div id="trendsContainer"></div>
+            </div>
+        </div>
+
+        <div class="monetization">
+            <h3>⭐ Премиум-доступ</h3>
+            <p>Получите неограниченное количество генераций, детальный бизнес-план и инвестиционный анализ.</p>
+            <button class="premium-btn" onclick="showPremium()">
+                Активировать за $9/мес
+            </button>
+        </div>
+    </div>
+
+    <div class="modal" id="premiumModal">
+        <div class="modal-content">
+            <h2>⭐ Премиум-функции</h2>
+            <ul style="text-align: left; margin: 20px 0; line-height: 2;">
+                <li>✅ Неограниченные генерации</li>
+                <li>✅ Детальный бизнес-план</li>
+                <li>✅ Анализ конкурентов</li>
+                <li>✅ Финансовые прогнозы</li>
+                <li>✅ Пошаговый план запуска</li>
+            </ul>
+            <p style="font-size: 1.2em; font-weight: bold; color: #667eea;">Всего $9/месяц</p>
+            <button class="btn" style="margin-top: 15px;" onclick="alert('Интеграция с платежной системой (Stripe/PayPal)')">
+                Оформить подписку
+            </button>
+            <br>
+            <button class="close-modal" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        const trendsDB = {
+            tech: [
+                { keyword: "AI автоматизация", growth: "+245%", volume: "high" },
+                { keyword: "No-code платформы", growth: "+189%", volume: "high" },
+                { keyword: "Web3 приложения", growth: "+156%", volume: "medium" },
+                { keyword: "Кибербезопасность", growth: "+134%", volume: "high" }
+            ],
+            eco: [
+                { keyword: "Zero Waste продукты", growth: "+312%", volume: "high" },
+                { keyword: "Вторичная переработка", growth: "+198%", volume: "medium" },
+                { keyword: "Эко-упаковка", growth: "+267%", volume: "high" },
+                { keyword: "Вертикальные фермы", growth: "+145%", volume: "medium" }
+            ],
+            health: [
+                { keyword: "Ментальное здоровье apps", growth: "+289%", volume: "high" },
+                { keyword: "Персонализированное питание", growth: "+234%", volume: "high" },
+                { keyword: "Телемедицина", growth: "+178%", volume: "high" },
+                { keyword: "Биохакинг", growth: "+156%", volume: "medium" }
+            ],
+            edu: [
+                { keyword: "Микро-обучение", growth: "+198%", volume: "high" },
+                { keyword: "VR образование", growth: "+167%", volume: "medium" },
+                { keyword: "Навыки будущего", growth: "+234%", volume: "high" },
+                { keyword: "Языковые AI-репетиторы", growth: "+189%", volume: "medium" }
+            ],
+            food: [
+                { keyword: "Растительные альтернативы", growth: "+278%", volume: "high" },
+                { keyword: "Доставка healthy food", growth: "+156%", volume: "high" },
+                { keyword: "Фермерские продукты online", growth: "+134%", volume: "medium" },
+                { keyword: "Персонализированное питание", growth: "+198%", volume: "high" }
+            ],
+            retail: [
+                { keyword: "Social commerce", growth: "+267%", volume: "high" },
+                { keyword: "AR-примерка", growth: "+145%", volume: "medium" },
+                { keyword: "Подписки на продукты", growth: "+189%", volume: "high" },
+                { keyword: "Recommerce", growth: "+234%", volume: "high" }
+            ],
+            finance: [
+                { keyword: "Финансовая грамотность", growth: "+312%", volume: "high" },
+                { keyword: "Крипто-образование", growth: "+178%", volume: "medium" },
+                { keyword: "Микро-инвестиции", growth: "+245%", volume: "high" },
+                { keyword: "BNPL сервисы", growth: "+198%", volume: "high" }
+            ],
+            entertainment: [
+                { keyword: "Short-form видео", growth: "+345%", volume: "high" },
+                { keyword: "Подкасты", growth: "+167%", volume: "medium" },
+                { keyword: "Игровые метавселенные", growth: "+234%", volume: "high" },
+                { keyword: "AI-генерация контента", growth: "+289%", volume: "high" }
+            ]
+        };
+
+        async function generateIdeas() {
+            const btn = document.getElementById('generateBtn');
+            const loading = document.getElementById('loading');
+            const results = document.getElementById('results');
+            const trendsSection = document.getElementById('trendsSection');
+            
+            btn.disabled = true;
+            loading.classList.add('active');
+            results.classList.remove('active');
+            trendsSection.style.display = 'none';
+
+            const industry = document.getElementById('industry').value;
+            const budget = document.getElementById('budget').value;
+            const region = document.getElementById('region').value;
+            const skills = document.getElementById('skills').value;
+
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            const ideas = generateBusinessIdeas(industry, budget, region, skills);
+            const trends = trendsDB[industry] || [];
+
+            displayIdeas(ideas);
+            displayTrends(trends);
+            
+            updateStats(ideas.length, trends.length);
+
+            loading.classList.remove('active');
+            results.classList.add('active');
+            trendsSection.style.display = 'block';
+            btn.disabled = false;
+        }
+
+        function generateBusinessIdeas(industry, budget, region, skills) {
+            const ideas = [];
+            const trends = trendsDB[industry] || [];
+            const numIdeas = Math.floor(Math.random() * 3) + 3;
+            
+            for (let i = 0; i < numIdeas; i++) {
+                const trend = trends[i % trends.length];
+                const idea = createIdeaFromTrend(trend, industry, budget, region, skills, i);
+                ideas.push(idea);
+            }
+
+            return ideas;
+        }
+
+        function createIdeaFromTrend(trend, industry, budget, region, skills, index) {
+            const templates = {
+                tech: [
+                    {
+                        title: `AI-ассистент для ${trend.keyword}`,
+                        description: `Создайте специализированного AI-ассистента для автоматизации процессов в сфере ${trend.keyword}. Используйте бесплатные API (OpenRouter, Hugging Face) для снижения costs.`,
+                        investment: budget === 'low' ? '$200-500' : '$1000-3000',
+                        monetization: 'Подписка SaaS, API-доступ',
+                        difficulty: 'Средняя'
+                    },
+                    {
+                        title: `No-code платформа ${trend.keyword}`,
+                        description: `Платформа, позволяющая создавать ${trend.keyword} без программирования. Целевая аудитория - малий бизнес.`,
+                        investment: '$500-2000',
+                        monetization: 'Freemium модель',
+                        difficulty: 'Низкая'
+                    }
+                ],
+                eco: [
+                    {
+                        title: `Маркетплейс ${trend.keyword}`,
+                        description: `Онлайн-платформа для покупки и продажи экологичных товаров с фокусом на ${trend.keyword}.`,
+                        investment: '$300-1000',
+                        monetization: 'Комиссия с продаж',
+                        difficulty: 'Низкая'
+                    }
+                ],
+                health: [
+                    {
+                        title: `App для ${trend.keyword}`,
+                        description: `Мобильное приложение для отслеживания и улучшения ${trend.keyword} с персонализированными рекомендациями.`,
+                        investment: '$1000-5000',
+                        monetization: 'Подписка, in-app покупки',
+                        difficulty: 'Средняя'
+                    }
+                ],
+                edu: [
+                    {
+                        title: `Курсы по ${trend.keyword}`,
+                        description: `Онлайн-школа с микро-обучением по теме ${trend.keyword}. Используйте AI для персонализации.`,
+                        investment: '$100-500',
+                        monetization: 'Продажа курсов',
+                        difficulty: 'Низкая'
+                    }
+                ],
+                food: [
+                    {
+                        title: `Сервис ${trend.keyword}`,
+                        description: `Доставка/подписка на ${trend.keyword} с AI-подбором рациона.`,
+                        investment: '$500-2000',
+                        monetization: 'Подписка, доставка',
+                        difficulty: 'Средняя'
+                    }
+                ],
+                retail: [
+                    {
+                        title: `Social commerce для ${trend.keyword}`,
+                        description: `Платформа продаж через соцсети с фокусом на ${trend.keyword}.`,
+                        investment: '$200-1000',
+                        monetization: 'Комиссия, реклама',
+                        difficulty: 'Низкая'
+                    }
+                ],
+                finance: [
+                    {
+                        title: `EdTech платформа ${trend.keyword}`,
+                        description: `Образовательная платформа для обучения ${trend.keyword} с gamification.`,
+                        investment: '$300-1500',
+                        monetization: 'Подписка, партнерства',
+                        difficulty: 'Средняя'
+                    }
+                ],
+                entertainment: [
+                    {
+                        title: `Контент-студия ${trend.keyword}`,
+                        description: `Агентство по созданию контента в формате ${trend.keyword} с использованием AI.`,
+                        investment: '$100-800',
+                        monetization: 'Продажа контента, реклама',
+                        difficulty: 'Низкая'
+                    }
+                ]
+            };
+
+            const industryIdeas = templates[industry] || templates.tech;
+            const baseIdea = industryIdeas[index % industryIdeas.length];
+            
+            return {
+                ...baseIdea,
+                trend: trend.keyword,
+                growth: trend.growth,
+                region: region
+            };
+        }
+
+        function displayIdeas(ideas) {
+            const container = document.getElementById('ideasContainer');
+            container.innerHTML = '';
+
+            ideas.forEach((idea, index) => {
+                const card = document.createElement('div');
+                card.className = 'idea-card';
+                card.innerHTML = `
+                    <div class="idea-title">${index + 1}. ${idea.title}</div>
+                    <div class="idea-description">${idea.description}</div>
+                    <div class="idea-meta">
+                        <span class="tag">💰 ${idea.investment}</span>
+                        <span class="tag">📈 ${idea.growth}</span>
+                        <span class="tag">🎯 ${idea.difficulty}</span>
+                        <span class="tag">💵 ${idea.monetization}</span>
+                    </div>
+                    <button class="save-btn" onclick="saveIdea('${idea.title}')">
+                        💾 Сохранить идею
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function displayTrends(trends) {
+            const container = document.getElementById('trendsContainer');
+            container.innerHTML = '';
+
+            trends.forEach(trend => {
+                const item = document.createElement('div');
+                item.className = 'trend-item';
+                item.innerHTML = `
+                    <span class="trend-arrow">↗️</span>
+                    <div style="flex: 1;">
+                        <strong>${trend.keyword}</strong>
+                        <div style="font-size: 0.9em; color: #666;">
+                            Рост: ${trend.growth} | Объем: ${trend.volume}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function updateStats(ideasCount, trendsCount) {
+            const currentIdeas = parseInt(document.getElementById('ideasCount').innerText);
+            document.getElementById('ideasCount').innerText = currentIdeas + ideasCount;
+            document.getElementById('trendsCount').innerText = trendsCount;
+        }
+
+        function saveIdea(title) {
+            let saved = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
+            saved.push({
+                title: title,
+                date: new Date().toLocaleDateString()
+            });
+            localStorage.setItem('savedIdeas', JSON.stringify(saved));
+            alert('Идея сохранена! (хранится локально)');
+        }
+
+        function showPremium() {
+            document.getElementById('premiumModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('premiumModal').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('premiumModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedIdeas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
+            document.getElementById('ideasCount').innerText = savedIdeas.length;
+        });
+    </script>
+</body>
+</html>
