@@ -363,9 +363,9 @@
                 <div class="form-group">
                     <label>Бюджет старта</label>
                     <select id="budget">
-                        <option value="low">До $1000</option>
-                        <option value="medium">$1000 - $10,000</option>
-                        <option value="high">$10,000+</option>
+                        <option value="low">До 100 000 ₽</option>
+                        <option value="medium">100 000 ₽ - 1 000 000 ₽</option>
+                        <option value="high">1 000 000 ₽+</option>
                         <option value="any">Любой</option>
                     </select>
                 </div>
@@ -416,7 +416,7 @@
             <h3>⭐ Премиум-доступ</h3>
             <p>Получите неограниченное количество генераций, детальный бизнес-план и инвестиционный анализ.</p>
             <button class="premium-btn" onclick="showPremium()">
-                Активировать за $9/мес
+                Активировать за 900 ₽/мес
             </button>
         </div>
     </div>
@@ -431,8 +431,8 @@
                 <li>✅ Финансовые прогнозы</li>
                 <li>✅ Пошаговый план запуска</li>
             </ul>
-            <p style="font-size: 1.2em; font-weight: bold; color: #667eea;">Всего $9/месяц</p>
-            <button class="btn" style="margin-top: 15px;" onclick="alert('Интеграция с платежной системой (Stripe/PayPal)')">
+            <p style="font-size: 1.2em; font-weight: bold; color: #667eea;">Всего 900 ₽/месяц</p>
+            <button class="btn" style="margin-top: 15px;" onclick="alert('Интеграция с платежной системой (ЮKassa)')">
                 Оформить подписку
             </button>
             <br>
@@ -544,14 +544,14 @@
                     {
                         title: `AI-ассистент для ${trend.keyword}`,
                         description: `Создайте специализированного AI-ассистента для автоматизации процессов в сфере ${trend.keyword}. Используйте бесплатные API (OpenRouter, Hugging Face) для снижения costs.`,
-                        investment: budget === 'low' ? '$200-500' : '$1000-3000',
+                        investment: budget === 'low' ? '20 000 - 50 000 ₽' : '100 000 - 300 000 ₽',
                         monetization: 'Подписка SaaS, API-доступ',
                         difficulty: 'Средняя'
                     },
                     {
                         title: `No-code платформа ${trend.keyword}`,
                         description: `Платформа, позволяющая создавать ${trend.keyword} без программирования. Целевая аудитория - малий бизнес.`,
-                        investment: '$500-2000',
+                        investment: '50 000 - 200 000 ₽',
                         monetization: 'Freemium модель',
                         difficulty: 'Низкая'
                     }
@@ -560,7 +560,7 @@
                     {
                         title: `Маркетплейс ${trend.keyword}`,
                         description: `Онлайн-платформа для покупки и продажи экологичных товаров с фокусом на ${trend.keyword}.`,
-                        investment: '$300-1000',
+                        investment: '30 000 - 100 000 ₽',
                         monetization: 'Комиссия с продаж',
                         difficulty: 'Низкая'
                     }
@@ -569,7 +569,7 @@
                     {
                         title: `App для ${trend.keyword}`,
                         description: `Мобильное приложение для отслеживания и улучшения ${trend.keyword} с персонализированными рекомендациями.`,
-                        investment: '$1000-5000',
+                        investment: '100 000 - 500 000 ₽',
                         monetization: 'Подписка, in-app покупки',
                         difficulty: 'Средняя'
                     }
@@ -578,7 +578,7 @@
                     {
                         title: `Курсы по ${trend.keyword}`,
                         description: `Онлайн-школа с микро-обучением по теме ${trend.keyword}. Используйте AI для персонализации.`,
-                        investment: '$100-500',
+                        investment: '10 000 - 50 000 ₽',
                         monetization: 'Продажа курсов',
                         difficulty: 'Низкая'
                     }
@@ -587,7 +587,7 @@
                     {
                         title: `Сервис ${trend.keyword}`,
                         description: `Доставка/подписка на ${trend.keyword} с AI-подбором рациона.`,
-                        investment: '$500-2000',
+                        investment: '50 000 - 200 000 ₽',
                         monetization: 'Подписка, доставка',
                         difficulty: 'Средняя'
                     }
@@ -596,7 +596,7 @@
                     {
                         title: `Social commerce для ${trend.keyword}`,
                         description: `Платформа продаж через соцсети с фокусом на ${trend.keyword}.`,
-                        investment: '$200-1000',
+                        investment: '20 000 - 100 000 ₽',
                         monetization: 'Комиссия, реклама',
                         difficulty: 'Низкая'
                     }
@@ -605,7 +605,7 @@
                     {
                         title: `EdTech платформа ${trend.keyword}`,
                         description: `Образовательная платформа для обучения ${trend.keyword} с gamification.`,
-                        investment: '$300-1500',
+                        investment: '30 000 - 150 000 ₽',
                         monetization: 'Подписка, партнерства',
                         difficulty: 'Средняя'
                     }
@@ -614,7 +614,7 @@
                     {
                         title: `Контент-студия ${trend.keyword}`,
                         description: `Агентство по созданию контента в формате ${trend.keyword} с использованием AI.`,
-                        investment: '$100-800',
+                        investment: '10 000 - 80 000 ₽',
                         monetization: 'Продажа контента, реклама',
                         difficulty: 'Низкая'
                     }
