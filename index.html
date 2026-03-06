@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Генератор Бизнес-Идей</title>
+    <title>AI Генератор Бизнес-Идей — Готовые концепции бесплатно</title>
+    <meta name="description" content="Бесплатный генератор бизнес-идей. Получите готовую концепцию бизнеса с описанием, анализом рынка и стратегией запуска. Финансовые расчёты по подписке.">
+    <meta name="keywords" content="бизнес идеи, стартап, бизнес план, как начать бизнес, идеи для бизнеса 2025">
     <style>
         * {
             margin: 0;
@@ -12,10 +14,11 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
+            line-height: 1.6;
         }
 
         .container {
@@ -31,14 +34,27 @@
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 2.8em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.3em;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .free-badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 0.9em;
         }
 
         .main-card {
@@ -68,16 +84,17 @@
         }
 
         input, select, textarea {
-            padding: 12px;
+            padding: 14px;
             border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 16px;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         textarea {
@@ -89,11 +106,11 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 15px 40px;
+            padding: 16px 40px;
             font-size: 18px;
             border-radius: 30px;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
             font-weight: 600;
         }
 
@@ -119,10 +136,10 @@
 
         .idea-card {
             background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
             animation: slideIn 0.5s ease-out;
         }
 
@@ -138,30 +155,194 @@
         }
 
         .idea-title {
-            font-size: 1.3em;
+            font-size: 1.6em;
             font-weight: 700;
             color: #333;
-            margin-bottom: 10px;
-        }
-
-        .idea-description {
-            color: #666;
-            line-height: 1.6;
             margin-bottom: 15px;
-        }
-
-        .idea-meta {
             display: flex;
-            gap: 15px;
+            align-items: center;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
-        .tag {
-            background: #667eea;
+        .idea-badge {
+            background: #28a745;
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.85em;
+            font-size: 0.65em;
+            text-transform: uppercase;
+        }
+
+        .idea-description {
+            color: #444;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .concept-box {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+
+        .concept-title {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .concept-content {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .market-analysis {
+            background: #e8f4f8;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .analysis-title {
+            font-weight: 700;
+            color: #17a2b8;
+            margin-bottom: 10px;
+        }
+
+        .target-audience {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .competitive-advantage {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .launch-strategy {
+            background: #fefce8;
+            border-left: 4px solid #eab308;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .locked-content {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px dashed #ffc107;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .lock-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .locked-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .locked-description {
+            color: #856404;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .price-tag {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+            margin: 15px 0;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .payment-btn {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .payment-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .payment-btn.telegram {
+            border-color: #0088cc;
+            color: #0088cc;
+        }
+
+        .payment-btn.telegram:hover {
+            background: #0088cc;
+            color: white;
+        }
+
+        .payment-btn.crypto {
+            border-color: #f7931a;
+            color: #f7931a;
+        }
+
+        .payment-btn.crypto:hover {
+            background: #f7931a;
+            color: white;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 8px;
+            font-size: 0.95em;
         }
 
         .loading {
@@ -189,125 +370,93 @@
             100% { transform: rotate(360deg); }
         }
 
-        .monetization {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 30px;
-        }
-
-        .monetization h3 {
-            color: #856404;
-            margin-bottom: 15px;
-        }
-
-        .premium-btn {
-            background: #ffc107;
-            color: #333;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .stat-label {
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .trends-section {
-            margin-top: 30px;
-        }
-
-        .trend-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            background: #f8f9fa;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .trend-item:hover {
-            background: #e9ecef;
-        }
-
-        .trend-arrow {
-            color: #28a745;
-            font-size: 1.5em;
-            margin-right: 15px;
-        }
-
         .save-btn {
             background: #28a745;
             color: white;
             border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 12px 30px;
+            border-radius: 25px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 15px;
+            font-size: 1em;
+            margin-right: 10px;
         }
 
-        .modal {
+        .share-btn {
+            background: #4267B2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 1em;
+        }
+
+        .telegram-modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
 
-        .modal.active {
+        .telegram-modal.active {
             display: flex;
         }
 
         .modal-content {
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 20px;
             max-width: 500px;
             width: 90%;
             text-align: center;
         }
 
+        .modal-content h2 {
+            color: #0088cc;
+            margin-bottom: 20px;
+        }
+
+        .telegram-link {
+            display: inline-block;
+            background: #0088cc;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+
         .close-modal {
-            background: #dc3545;
+            background: #6c757d;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 20px;
             cursor: pointer;
             margin-top: 15px;
+        }
+
+        .seo-text {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .seo-text h2 {
+            color: #333;
+            margin-bottom: 15px;
         }
 
         @media (max-width: 768px) {
@@ -317,6 +466,9 @@
             .main-card {
                 padding: 20px;
             }
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -324,7 +476,8 @@
     <div class="container">
         <header>
             <h1>🚀 AI Генератор Бизнес-Идей</h1>
-            <p class="subtitle">Анализ трендов + ИИ = Уникальные бизнес-идеи</p>
+            <p class="subtitle">Получите готовую бизнес-концепцию бесплатно. Финансовые расчёты и детальный план — по подписке.</p>
+            <div class="free-badge">✓ Бесплатная генерация идей</div>
         </header>
 
         <div class="stats">
@@ -333,383 +486,550 @@
                 <div class="stat-label">Сгенерировано идей</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="trendsCount">0</div>
-                <div class="stat-label">Проанализировано трендов</div>
+                <div class="stat-number" id="usersCount">1.2K</div>
+                <div class="stat-label">Предпринимателей</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="usersCount">1.2K</div>
-                <div class="stat-label">Активных пользователей</div>
+                <div class="stat-number">89%</div>
+                <div class="stat-label">Запускают бизнес</div>
             </div>
         </div>
 
         <div class="main-card">
-            <h2 style="margin-bottom: 20px; color: #333;">🔍 Параметры генерации</h2>
+            <h2 style="margin-bottom: 20px; color: #333;">🔍 Выберите параметры вашего будущего бизнеса</h2>
             
             <div class="input-section">
                 <div class="form-group">
-                    <label>Сфера бизнеса</label>
+                    <label>Сфера деятельности</label>
                     <select id="industry">
-                        <option value="tech">Технологии</option>
-                        <option value="eco">Экология</option>
-                        <option value="health">Здоровье</option>
-                        <option value="edu">Образование</option>
-                        <option value="food">Еда и напитки</option>
-                        <option value="retail">Ритейл</option>
-                        <option value="finance">Финансы</option>
-                        <option value="entertainment">Развлечения</option>
+                        <option value="tech">Технологии и IT</option>
+                        <option value="food">Еда, напитки, кулинария</option>
+                        <option value="eco">Экология и sustainability</option>
+                        <option value="health">Здоровье, фитнес, wellness</option>
+                        <option value="edu">Образование и обучение</option>
+                        <option value="retail">Торговля и e-commerce</option>
+                        <option value="service">Услуги для бизнеса (B2B)</option>
+                        <option value="creative">Творчество, медиа, дизайн</option>
+                        <option value="logistics">Логистика и доставка</option>
+                        <option value="tourism">Туризм и путешествия</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Бюджет старта</label>
+                    <label>Стартовый бюджет</label>
                     <select id="budget">
-                        <option value="low">До 100 000 ₽</option>
-                        <option value="medium">100 000 ₽ - 1 000 000 ₽</option>
-                        <option value="high">1 000 000 ₽+</option>
-                        <option value="any">Любой</option>
+                        <option value="micro">До 50 000 ₽ — минимальный старт</option>
+                        <option value="small">50 000 — 200 000 ₽ — небольшой бизнес</option>
+                        <option value="medium">200 000 — 500 000 ₽ — средний проект</option>
+                        <option value="large">500 000 — 1 500 000 ₽ — серьёзный старт</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Регион</label>
-                    <select id="region">
-                        <option value="global">Глобально</option>
-                        <option value="cis">СНГ</option>
-                        <option value="europe">Европа</option>
-                        <option value="asia">Азия</option>
-                        <option value="usa">США</option>
+                    <label>Формат работы</label>
+                    <select id="format">
+                        <option value="online">Онлайн / удалённо</option>
+                        <option value="offline">Офлайн / точка продаж</option>
+                        <option value="hybrid">Гибридный формат</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-group" style="margin-bottom: 20px;">
-                <label>Ваши навыки и интересы (опционально)</label>
-                <textarea id="skills" placeholder="Например: программирование, маркетинг, дизайн..."></textarea>
+                <label>Ваши навыки и опыт (для персонализации идеи)</label>
+                <textarea id="skills" placeholder="Например: программирование, продажи, маркетинг, управление людьми, дизайн, знание иностранных языков..."></textarea>
             </div>
 
             <div style="text-align: center;">
                 <button class="btn" onclick="generateIdeas()" id="generateBtn">
-                    ✨ Сгенерировать идеи
+                    ✨ Сгенерировать бизнес-идею бесплатно
                 </button>
             </div>
 
             <div class="loading" id="loading">
                 <div class="spinner"></div>
-                <p>Анализируем тренды и генерируем идеи...</p>
+                <p>Анализируем рынок, тренды и ваши навыки...</p>
                 <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
-                    Используем: Google Trends + AI анализ
+                    Создаём уникальную бизнес-концепцию
                 </p>
             </div>
 
             <div class="results" id="results">
-                <h3 style="margin-bottom: 20px; color: #333;">💡 Ваши бизнес-идеи:</h3>
+                <h3 style="margin-bottom: 20px; color: #333;">💡 Ваша бизнес-идея:</h3>
                 <div id="ideasContainer"></div>
-            </div>
-
-            <div class="trends-section" id="trendsSection" style="display: none;">
-                <h3 style="margin-bottom: 15px; color: #333;">📈 Актуальные тренды:</h3>
-                <div id="trendsContainer"></div>
             </div>
         </div>
 
-        <div class="monetization">
-            <h3>⭐ Премиум-доступ</h3>
-            <p>Получите неограниченное количество генераций, детальный бизнес-план и инвестиционный анализ.</p>
-            <button class="premium-btn" onclick="showPremium()">
-                Активировать за 900 ₽/мес
-            </button>
+        <!-- SEO текст для поисковиков -->
+        <div class="seo-text">
+            <h2>Как найти идею для бизнеса в 2025 году?</h2>
+            <p>Начать свой бизнес — мечта многих, но главная проблема: какую именно идею выбрать? Наш AI генератор бизнес-идей помогает найти перспективную нишу, проанализировать рынок и получить готовую концепцию.</p>
+            
+            <h3>Что вы получаете бесплатно?</h3>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li>Подробное описание бизнес-идеи с конкретикой</li>
+                <li>Анализ целевой аудитории</li>
+                <li>Конкурентные преимущества</li>
+                <li>Стратегию запуска по шагам</li>
+                <li>Оценку рисков и возможностей</li>
+            </ul>
+
+            <h3>Что доступно по подписке?</h3>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li>Детальные финансовые расчёты (инвестиции, расходы, доходы)</li>
+                <li>Точная окупаемость и ROI</li>
+                <li>Готовый бизнес-план для инвесторов</li>
+                <li>Юридические шаблоны и документы</li>
+                <li>Персональная консультация</li>
+            </ul>
+
+            <p><strong>Для кого это?</strong> Для начинающих предпринимателей, самозанятых, фрилансеров, желающих масштабироваться, и всех, кто ищет рабочие бизнес-идеи с минимальными вложениями.</p>
         </div>
     </div>
 
-    <div class="modal" id="premiumModal">
+    <!-- Модальное окно для оплаты -->
+    <div class="telegram-modal" id="paymentModal">
         <div class="modal-content">
-            <h2>⭐ Премиум-функции</h2>
+            <div class="lock-icon">🔒</div>
+            <h2>Финансовые расчёты по подписке</h2>
+            <p>Получите полный бизнес-план с цифрами:</p>
             <ul style="text-align: left; margin: 20px 0; line-height: 2;">
-                <li>✅ Неограниченные генерации</li>
-                <li>✅ Детальный бизнес-план</li>
-                <li>✅ Анализ конкурентов</li>
-                <li>✅ Финансовые прогнозы</li>
-                <li>✅ Пошаговый план запуска</li>
+                <li>✓ Стартовые инвестиции (построчно)</li>
+                <li>✓ Ежемесячные расходы</li>
+                <li>✓ Прогноз доходов на 12 месяцев</li>
+                <li>✓ Точная окупаемость и ROI</li>
+                <li>✓ Готовый план для инвесторов</li>
             </ul>
-            <p style="font-size: 1.2em; font-weight: bold; color: #667eea;">Всего 900 ₽/месяц</p>
-            <button class="btn" style="margin-top: 15px;" onclick="alert('Интеграция с платежной системой (ЮKassa)')">
-                Оформить подписку
-            </button>
-            <br>
-            <button class="close-modal" onclick="closeModal()">Закрыть</button>
+            <div class="price-tag">990 ₽/мес</div>
+            <p style="color: #666; font-size: 0.9em;">Или 9 900 ₽/год (экономия 2 970 ₽)</p>
+            
+            <div class="payment-options">
+                <button class="payment-btn telegram" onclick="openTelegram()">
+                    💬 Оплата в Telegram
+                </button>
+                <button class="payment-btn crypto" onclick="alert('Реквизиты для криптовалюты будут отправлены в Telegram')">
+                    ₿ Криптовалюта
+                </button>
+                <button class="payment-btn" onclick="alert('Напишите нам для получения реквизитов СБП/перевода')">
+                    💳 Перевод / СБП
+                </button>
+            </div>
+            
+            <button class="close-modal" onclick="closePaymentModal()">Пока не хочу</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно Telegram -->
+    <div class="telegram-modal" id="telegramModal">
+        <div class="modal-content">
+            <h2>💬 Напишите нам в Telegram</h2>
+            <p>Для оплаты и получения доступа напишите боту:</p>
+            <a href="https://t.me/your_business_bot" class="telegram-link" target="_blank">
+                @your_business_bot
+            </a>
+            <p style="margin-top: 15px; color: #666; font-size: 0.9em;">
+                Или сохраните контакт: <strong>+7 (999) 123-45-67</strong>
+            </p>
+            <button class="close-modal" onclick="closeTelegramModal()">Закрыть</button>
         </div>
     </div>
 
     <script>
-        const trendsDB = {
-            tech: [
-                { keyword: "AI автоматизация", growth: "+245%", volume: "high" },
-                { keyword: "No-code платформы", growth: "+189%", volume: "high" },
-                { keyword: "Web3 приложения", growth: "+156%", volume: "medium" },
-                { keyword: "Кибербезопасность", growth: "+134%", volume: "high" }
-            ],
-            eco: [
-                { keyword: "Zero Waste продукты", growth: "+312%", volume: "high" },
-                { keyword: "Вторичная переработка", growth: "+198%", volume: "medium" },
-                { keyword: "Эко-упаковка", growth: "+267%", volume: "high" },
-                { keyword: "Вертикальные фермы", growth: "+145%", volume: "medium" }
-            ],
-            health: [
-                { keyword: "Ментальное здоровье apps", growth: "+289%", volume: "high" },
-                { keyword: "Персонализированное питание", growth: "+234%", volume: "high" },
-                { keyword: "Телемедицина", growth: "+178%", volume: "high" },
-                { keyword: "Биохакинг", growth: "+156%", volume: "medium" }
-            ],
-            edu: [
-                { keyword: "Микро-обучение", growth: "+198%", volume: "high" },
-                { keyword: "VR образование", growth: "+167%", volume: "medium" },
-                { keyword: "Навыки будущего", growth: "+234%", volume: "high" },
-                { keyword: "Языковые AI-репетиторы", growth: "+189%", volume: "medium" }
-            ],
-            food: [
-                { keyword: "Растительные альтернативы", growth: "+278%", volume: "high" },
-                { keyword: "Доставка healthy food", growth: "+156%", volume: "high" },
-                { keyword: "Фермерские продукты online", growth: "+134%", volume: "medium" },
-                { keyword: "Персонализированное питание", growth: "+198%", volume: "high" }
-            ],
-            retail: [
-                { keyword: "Social commerce", growth: "+267%", volume: "high" },
-                { keyword: "AR-примерка", growth: "+145%", volume: "medium" },
-                { keyword: "Подписки на продукты", growth: "+189%", volume: "high" },
-                { keyword: "Recommerce", growth: "+234%", volume: "high" }
-            ],
-            finance: [
-                { keyword: "Финансовая грамотность", growth: "+312%", volume: "high" },
-                { keyword: "Крипто-образование", growth: "+178%", volume: "medium" },
-                { keyword: "Микро-инвестиции", growth: "+245%", volume: "high" },
-                { keyword: "BNPL сервисы", growth: "+198%", volume: "high" }
-            ],
-            entertainment: [
-                { keyword: "Short-form видео", growth: "+345%", volume: "high" },
-                { keyword: "Подкасты", growth: "+167%", volume: "medium" },
-                { keyword: "Игровые метавселенные", growth: "+234%", volume: "high" },
-                { keyword: "AI-генерация контента", growth: "+289%", volume: "high" }
-            ]
+        // База данных бизнес-идей (бесплатная часть)
+        const businessDatabase = {
+            tech: {
+                micro: {
+                    title: "Микро-SaaS: Автоматизация рутинных задач",
+                    concept: "Простой онлайн-инструмент, который автоматизирует одну конкретную рутинную задачу для малого бизнеса.",
+                    description: "Представьте сервис, который делает за 5 минут то, на что обычно уходит 2 часа. Например: автоматическая генерация чек-листов для бухгалтеров, авто-рассылка отзывов клиентам, или умное планирование постов в соцсетях. Вы создаёте один простой продукт, который решает одну боль — и продаёте подписку.",
+                    marketAnalysis: "Рынок SaaS для малого бизнеса растёт на 15% в год. Малый бизнес готов платить за экономию времени, но не хочет сложных корпоративных решений. Ниша 'простых инструментов' сильно недооценена.",
+                    targetAudience: "Индивидуальные предприниматели, малие компании до 10 человек, фрилансеры, которым нужно автоматизировать рутину без найма помощника.",
+                    advantages: "Минимальные вложения, работа из любой точки мира, пассивный доход от подписок, легко масштабировать добавлением новых функций.",
+                    risks: "Нужно быстро проверить гипотезу, иначе кто-то другой запустит похожий продукт. Требуются базовые технические навыки или готовность их быстро получить.",
+                    launchStrategy: [
+                        "Неделя 1-2: Выберите одну конкретную проблему (опросите 20 потенциальных клиентов)",
+                        "Неделя 3-4: Создайте MVP на No-code платформе (Bubble, Tilda + интеграции)",
+                        "Неделя 5-6: Бесплатное тестирование на 10 пользователях, сбор обратной связи",
+                        "Неделя 7-8: Запуск платной версии, первые продажи через личный нетворк",
+                        "Месяц 3+: Масштабирование через таргетированную рекламу"
+                    ]
+                },
+                small: {
+                    title: "Агентство цифровой трансформации для малого бизнеса",
+                    concept: "Помощь компаниям в переходе на цифровые инструменты: CRM, чат-боты, автоматизация документооборота.",
+                    description: "Малый бизнес понимает, что нужно 'оцифровываться', но не знает с чего начать. Вы становитесь их проводником в мир технологий: настраиваете Битрикс24 или amoCRM, создаёте чат-бота для продаж, автоматизируете заявки. Не просто внедряете — обучаете и сопровождаете.",
+                    marketAnalysis: "80% малого бизнеса в России ещё не используют CRM. После 2020 года спрос на цифровизацию вырос в 3 раза. Компании готовы платить за готовое решение 'под ключ', а не разбираться самостоятельно.",
+                    targetAudience: "Малый бизнес 5-50 сотрудников: салоны красоты, клиники, строительные бригады, магазины, которые теряют клиентов из-за бардака в заявках.",
+                    advantages: "Высокий средний чек (30 000 — 150 000 ₽ за проект), постоянный поток клиентов, возможность расти через найм, работа с проверенными инструментами (не нужно изобретать велосипед).",
+                    risks: "Зависимость от подрядчиков (Битрикс, Telegram), необходимость постоянно учиться новому, конкуренция со стороны фрилансеров.",
+                    launchStrategy: [
+                        "Месяц 1: Получите сертификаты партнёров (Битрикс24, Telegram боты)",
+                        "Месяц 2: Сделайте 3 пилотных проекта бесплатно или дёшево — для портфолио и отзывов",
+                        "Месяц 3: Запуск рекламы, первые платные клиенты через знакомства и соцсети",
+                        "Месяц 4-6: Найм первого помощника, систематизация процессов",
+                        "Месяц 7-12: Выход на стабильные 300 000 — 500 000 ₽/мес через абонентское обслуживание"
+                    ]
+                }
+            },
+            food: {
+                micro: {
+                    title: "Домашняя мини-пекарня: авторские десерты",
+                    concept: "Изготовление десертов на заказ в домашних условиях с доставкой или самовывозом.",
+                    description: "Начните с простого: капкейки, пирожные, эклеры. Продавайте через Instagram и ВКонтакте. Главное — уникальный вкус и красивая подача. Постепенно переходите к тортам на заказ, свадебным наборам, корпоративным подаркам. Это бизнес, который растёт через 'сарафанное радио' и красивые фото.",
+                    marketAnalysis: "Рынок домашней выпечки растёт на 20% в год. Люди устали от магазинной выпечки и ищут 'как у бабушки, но красиво'. Особенно востребованы: низкокалорийные десерты, безглютеновая выпечка, авторские вкусы.",
+                    targetAudience: "Молодые мамы (на день рождения ребёнка), офисные работники (кофе-брейки), молодожёны (свадебные торты), компании (корпоративные подарки).",
+                    advantages: "Минимальный старт (кухня уже есть), творческая работа, гибкий график, возможность начать с 5-10 заказов в месяц, высокая маржинальность (60-70%).",
+                    risks: "Сезонность (летом спад), порча продукции, физическая нагрузка, необходимость соблюдать сроки.",
+                    launchStrategy: [
+                        "Неделя 1-2: Отработайте 3-5 фирменных рецепта, сделайте профессиональные фото",
+                        "Неделя 3-4: Запустите Instagram, проведите бесплатные дегустации среди друзей",
+                        "Месяц 2: Первые платные заказы, сбор отзывов, работа с обратной связью",
+                        "Месяц 3-4: Наращивание клиентской базы, реклама через блогеров-микроинфлюенсеров",
+                        "Месяц 6+: Выход на 50 000 — 100 000 ₽/мес, расширение ассортимента"
+                    ]
+                },
+                small: {
+                    title: "Кофейня формата 'coffee to go'",
+                    concept: "Небольшая точка (5-10 кв.м) в проходном месте: у метро, в бизнес-центре, ТЦ.",
+                    description: "Фокус на качественном кофе и скорости. Клиент заходит, заказывает, получает через 2 минуты и идёт дальше. Никакой еды — только кофе, чай, возможно круассаны. Минимальные площади = минимальная аренда. Главное — правильная локация с высоким трафиком.",
+                    marketAnalysis: "Рынок кофеен в России растёт, но конкуренция высокая. Выигрывают точки с уникальной концепцией или отличным расположением. Формат 'кофе с собой' окупается быстрее традиционных кофеен за счёт экономии на площади и персонале.",
+                    targetAudience: "Офисные работники (утро, обед), студенты, прохожие в спешке. Средний чек 200-350 ₽, 100-200 чашек в день.",
+                    advantages: "Стабильный спрос (кофе — привычка), высокая маржинальность (кофе стоит 30 ₽, продаётся за 150-250 ₽), простая операционка, легко масштабировать открытием второй точки.",
+                    risks: "Критично важна локация, высокая конкуренция, зависимость от бариста (качество), сезонность (летом меньше горячих напитков).",
+                    launchStrategy: [
+                        "Месяц 1: Поиск идеальной локации (трафик 500+ человек/час), переговоры с арендодателем",
+                        "Месяц 2: Ремонт, закупка оборудования (кофемашина — сердце бизнеса), найм бариста",
+                        "Месяц 3: Софт-открытие, тестирование ассортимента, обучение персонала",
+                        "Месяц 4: Гранд-открытие, акции 'кофе за 99 ₽', программа лояльности",
+                        "Месяц 5-6: Выход на плановые показатели, оптимизация расходов"
+                    ]
+                }
+            },
+            eco: {
+                micro: {
+                    title: "Эко-консультант для дома и офиса",
+                    concept: "Помощь в переходе на экологичный образ жизни: аудит, рекомендации, подбор товаров.",
+                    description: "Вы приходите в дом клиента (или проводите онлайн-аудит) и показываете, как сократить отходы, заменить пластик на многоразовые альтернативы, организовать раздельный сбор мусора. Составляете план перехода, рекомендуете конкретные товары (с партнёрскими ссылками).",
+                    marketAnalysis: "Тренд на экологичность растёт: 67% россиян хотят жить более экологично, но не знают как. Готовы платить за конкретные инструкции, а не общие советы 'меньше покупайте'.",
+                    targetAudience: "Молодые семьи с детьми (забота о будущем), осознанные потребители 25-40 лет, компании (корпоративная социальная ответственность).",
+                    advantages: "Нулевые вложения в товар, работа на знаниях, возможность дополнительного дохода от партнёрских программ эко-магазинов, социальная значимость.",
+                    risks: "Низкая платёжеспособность части аудитории, необходимость постоянного обучения, риск 'зелёного мытья' (обвинений в лицемерии).",
+                    launchStrategy: [
+                        "Неделя 1-2: Пройдите бесплатные курсы, систематизируйте знания, создайте методичку",
+                        "Неделя 3-4: 5 бесплатных аудитов для отзывов и кейсов",
+                        "Месяц 2: Запуск платных услуг, ведение блога об экологичности",
+                        "Месяц 3-4: Партнёрства с эко-магазинами, корпоративные заказы",
+                        "Месяц 6+: Онлайн-курс 'Экодом за 30 дней', пассивный доход"
+                    ]
+                }
+            },
+            health: {
+                small: {
+                    title: "Персональный фитнес-тренер (онлайн + офлайн)",
+                    concept: "Комплексное сопровождение: тренировки, питание, поддержка в мессенджере.",
+                    description: "Не просто 'показываю упражнения', а полное сопровождение клиента к результату. Составляете индивидуальные программы тренировок и питания, контролируете выполнение, мотивируете. Формат гибкий: кто-то хочет в зал — встречаетесь в зале, кто-то дома — онлайн-тренировки.",
+                    marketAnalysis: "Фитнес-индустрия восстанавливается после пандемии, но изменился формат: люди хотят персонализации, а не групповых занятий. Онлайн-тренировки остались, но дополняются офлайн-встречами.",
+                    targetAudience: "Занятые профессионалы 30-45 лет (нет времени разбираться самим), женщины после родов, люди с особыми целями (марафон, свадьба, восстановление).",
+                    advantages: "Высокий средний чек (15 000 — 40 000 ₽/мес за абонемент), работа по графику, возможность удалённого формата, рост дохода с репутацией.",
+                    risks: "Физические нагрузки, зависимость от личного бренда, выгорание, ответственность за здоровье клиентов.",
+                    launchStrategy: [
+                        "Месяц 1: Получите сертификаты (можно онлайн), создайте портфолио 'до/после'",
+                        "Месяц 2: 10 бесплатных тренировок для отзывов и рекомендаций",
+                        "Месяц 3: Первые платные клиенты, ведение Instagram с полезным контентом",
+                        "Месяц 4-6: Специализация (например, 'тренер для мам'), повышение цен",
+                        "Месяц 7-12: Запуск групповых марафонов, онлайн-курсов, доход 200 000+ ₽"
+                    ]
+                }
+            },
+            edu: {
+                micro: {
+                    title: "Микро-онлайн-школа по конкретному навыку",
+                    concept: "Курс по одному конкретному навыку: Excel, SMM, копирайтинг, фотография на телефон.",
+                    description: "Не 'станьте профессиональным маркетологом за 6 месяцев', а 'научитесь вести Instagram за 7 дней'. Коротко, понятно, сразу применимо. Формат: видеоуроки 10-15 минут + практические задания + чат поддержки.",
+                    marketAnalysis: "Рынок онлайн-образования растёт на 30% в год. Люди не хотят долгих программ — нужен быстрый результат. Микро-курсы (до 10 часов контента) продаются лучше массивных.",
+                    targetAudience: "Специалисты, хотящие повысить квалификацию, фрилансеры, ищущие новые навыки, сотрудники на удалёнке, которым нужны цифровые навыки.",
+                    advantages: "Создаёте один раз — продаёте много раз, работа из любой точки мира, нет потолка дохода, можно совмещать с основной работой.",
+                    risks: "Нужны навыки преподавания и маркетинга, конкуренция с бесплатным контентом, необходимость обновлять материалы.",
+                    launchStrategy: [
+                        "Неделя 1-2: Выберите навык, в котором вы сильны (опросите подписчиков)",
+                        "Неделя 3-4: Создайте программу, запишите 3 бесплатных урока для лида-магнита",
+                        "Месяц 2: Запись основного курса (можно на телефон!), создание чата",
+                        "Месяц 3: Запуск продаж через личный бренд, первые ученики",
+                        "Месяц 4-6: Сбор обратной связи, доработка, масштабирование рекламы"
+                    ]
+                }
+            },
+            retail: {
+                small: {
+                    title: "Нишевый интернет-магазин (ресеилинг)",
+                    concept: "Перепродажа уникальных товаров: эко-товары, гаджеты, товары для хобби.",
+                    description: "Находите поставщиков (часто на Alibaba, иногда в России), закупаете небольшую партию, проверяете спрос, масштабируете. Продаёте через Instagram, Телеграм, маркетплейсы. Главное — найти 'свою' нишу, где мало конкурентов.",
+                    marketAnalysis: "E-commerce в России растёт, но крупные игроки (Ozon, Wildberries) забирают массовый сегмент. Выживают нишевые магазины с уникальным ассортиментом и экспертностью.",
+                    targetAudience: "Энтузиасты конкретной темы (например, любители чая, владельцы кошек, коллекционеры), ценящие подбор и консультацию.",
+                    advantages: "Не нужен офис, работа из дома, гибкость в ассортименте, можно тестировать гипотезы маленькими партиями.",
+                    risks: "Зависимость от поставщиков, возвраты, конкуренция с крупными маркетплейсами, необходимость вкладываться в товар.",
+                    launchStrategy: [
+                        "Месяц 1: Исследование ниши, поиск 3-5 поставщиков, закупка тестовой партии",
+                        "Месяц 2: Создание Instagram/Телеграм-канала, первые фото и описания",
+                        "Месяц 3: Первые продажи, обратная связь от клиентов, корректировка ассортимента",
+                        "Месяц 4-6: Выход на маркетплейсы, расширение ассортимента",
+                        "Месяц 7-12: Стабильные продажи, возможность найма помощника"
+                    ]
+                }
+            },
+            service: {
+                small: {
+                    title: "Агентство по подбору персонала (рекрутинг)",
+                    concept: "Поиск сотрудников для малого и среднего бизнеса 'под ключ'.",
+                    description: "Компании платят вам за то, что вы находите им подходящих сотрудников. Не просто размещаете вакансии, а активно ищете, собеседуете, проверяете. Специализируетесь на 1-2 нишах (например, только продавцы или только IT-разработчики).",
+                    marketAnalysis: "Рынок труда перегрет: компании не могут найти сотрудников, сотрудники не могут найти работу. Посредник, который реально разбирается в ниши, очень востребован. Средний чек 50 000 — 150 000 ₽.",
+                    targetAudience: "Малый бизнес, который не хочет содержать HR-отдел, но нуждается в качественных кадрах. Особенно востребовано в сферах с высокой текучкой (продажи, общепит).",
+                    advantages: "Высокий чек, оплата только за результат, работа с людьми (если нравится), возможность удалённой работы, нет затрат на товар.",
+                    risks: "Долгий цикл сделки (1-3 месяца), гарантии замены (если сотрудник уволился), зависимость от экономики (в кризис меньше наймов).",
+                    launchStrategy: [
+                        "Месяц 1: Выбор ниши, создание базы кандидатов (LinkedIn, Хабр, job-сайты)",
+                        "Месяц 2: Первые клиенты через знакомства, холодные звонки, бесплатные консультации",
+                        "Месяц 3: Первые успешные подборы, отзывы, кейсы",
+                        "Месяц 4-6: Специализация, повышение цен, первый помощник",
+                        "Месяц 7-12: Абонентское обслуживание (фиксированная плата в месяц + %)"
+                    ]
+                }
+            },
+            creative: {
+                micro: {
+                    title: "Фриланс-дизайнер узкой специализации",
+                    concept: "Дизайн логотипов, фирменных стилей или упаковки для малого бизнеса.",
+                    description: "Не 'всё подряд', а одна конкретная услуга, в которой вы становитесь экспертом. Например: только логотипы для кофеен, или только упаковка для косметики. Чем уже ниша — тем выше цена и проще маркетинг.",
+                    marketAnalysis: "Конкуренция среди дизайнеров огромна, но спрос тоже растёт — каждый новый бизнес нуждается в визуальной айдентике. Выигрывают те, кто специализируется и понимает бизнес клиента, а не просто 'красиво рисует'.",
+                    targetAudience: "Новые предприниматели, запускающие бизнес, существующие компании на ребрендинге, стартапы, ищущие инвестиции (нужен красивый питч).",
+                    advantages: "Творческая работа, гибкий график, рост цен с портфолио, возможность удалённой работы с клиентами по всему миру, низкий порог входа.",
+                    risks: "Творческое выгорание, нестабильный поток заказов, 'сложные' клиенты, необходимость постоянно учиться новым инструментам.",
+                    launchStrategy: [
+                        "Неделя 1-2: Выбор специализации, анализ конкурентов, создание 10 сильных работ для портфолио",
+                        "Неделя 3-4: Регистрация на биржах (Kwork, FL.ru), первые заказы по низкой цене для отзывов",
+                        "Месяц 2: Ведение Instagram с процессом работы, кейсами, полезными советами",
+                        "Месяц 3-4: Повышение цен, работа с 'своими' клиентами, отказ от бирж",
+                        "Месяц 6+: Сарафанное радио, повторные продажи, доход 100 000+ ₽"
+                    ]
+                }
+            },
+            logistics: {
+                micro: {
+                    title: "Курьерская служба для местного бизнеса",
+                    concept: "Доставка для малого бизнеса вашего города: цветы, еда, документы.",
+                    description: "Малый бизнес (цветочные, кафе, кондитерские) нуждается в доставке, но не могут позволить себе полноценную службу. Вы становитесь их курьером на аутсорсе. Начинаете сами, потом нанимаете помощников.",
+                    marketAnalysis: "Рынок доставки растёт, но крупные игроки (Яндекс, Сбер) фокусируются на массовом сегменте. Ниша премиальной/специализированной доставки (например, только цветы с особым уходом) свободна.",
+                    targetAudience: "Цветочные магазины, кондитерские, юристы/нотариусы (доставка документов), малие интернет-магазины.",
+                    advantages: "Минимальный старт (велосипед/мопед/авто), оплата сразу, регулярные клиенты, легко масштабировать наймом курьеров.",
+                    risks: "Физическая нагрузка, зависимость от погоды, износ транспорта, ответственность за груз.",
+                    launchStrategy: [
+                        "Неделя 1: Оформление самозанятости, выбор транспорта, маршруты",
+                        "Неделя 2: Обход 20-30 потенциальных клиентов, первые договорённости",
+                        "Месяц 1: Работа с 3-5 постоянными клиентами, отладка процессов",
+                        "Месяц 2-3: Первый найм (помощник), расширение зоны доставки",
+                        "Месяц 6+: Микро-служба доставки, доход 80 000 — 150 000 ₽"
+                    ]
+                }
+            },
+            tourism: {
+                small: {
+                    title: "Организация авторских туров по России",
+                    concept: "Небольшие групповые поездки с уникальной программой: гастрономические, треккинговые, культурные.",
+                    description: "Не 'всё включено' в Турцию, а поездка 'вглубь' региона: к мастерам в деревню, на заброшенные заводы, за грибами с ночёвкой. Для людей, уставших от типичного туризма. Вы — организатор и гид в одном лице.",
+                    marketAnalysis: "Внутренний туризм в России бурно развивается, но предложение однообразно. Уникальные авторские программы набирают viral-распространение в соцсетях.",
+                    targetAudience: "Молодые профессионалы 28-40 лет, ищущие необычный отдых, фотографы, блогеры, компании для тимбилдинга.",
+                    advantages: "Высокая маржинальность (группа 10 человек × 30 000 ₽ = 300 000 ₽ за выходные), работа в удовольствие, возможность совмещать с путешествиями.",
+                    risks: "Сезонность, зависимость от погоды, ответственность за безопасность группы, необходимость личного присутствия.",
+                    launchStrategy: [
+                        "Месяц 1: Выбор направления, проработка маршрута (2-3 тестовых поездки)",
+                        "Месяц 2: Создание контента (фото, видео), запуск Instagram/Телеграм",
+                        "Месяц 3: Первый платный тур (друзья + их друзья), сбор обратной связи",
+                        "Месяц 4-6: Регулярные выезды (2 в месяц), набор аудитории",
+                        "Месяц 7-12: Найм второго гида, расширение географии, доход 150 000+ ₽"
+                    ]
+                }
+            }
         };
 
-        async function generateIdeas() {
+        function generateIdeas() {
             const btn = document.getElementById('generateBtn');
             const loading = document.getElementById('loading');
             const results = document.getElementById('results');
-            const trendsSection = document.getElementById('trendsSection');
             
             btn.disabled = true;
             loading.classList.add('active');
             results.classList.remove('active');
-            trendsSection.style.display = 'none';
 
             const industry = document.getElementById('industry').value;
             const budget = document.getElementById('budget').value;
-            const region = document.getElementById('region').value;
+            const format = document.getElementById('format').value;
             const skills = document.getElementById('skills').value;
 
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            setTimeout(() => {
+                const idea = getIdea(industry, budget);
+                displayIdea(idea, format, skills);
+                
+                const currentCount = parseInt(document.getElementById('ideasCount').innerText);
+                document.getElementById('ideasCount').innerText = currentCount + 1;
 
-            const ideas = generateBusinessIdeas(industry, budget, region, skills);
-            const trends = trendsDB[industry] || [];
-
-            displayIdeas(ideas);
-            displayTrends(trends);
-            
-            updateStats(ideas.length, trends.length);
-
-            loading.classList.remove('active');
-            results.classList.add('active');
-            trendsSection.style.display = 'block';
-            btn.disabled = false;
+                loading.classList.remove('active');
+                results.classList.add('active');
+                btn.disabled = false;
+            }, 2000);
         }
 
-        function generateBusinessIdeas(industry, budget, region, skills) {
-            const ideas = [];
-            const trends = trendsDB[industry] || [];
-            const numIdeas = Math.floor(Math.random() * 3) + 3;
-            
-            for (let i = 0; i < numIdeas; i++) {
-                const trend = trends[i % trends.length];
-                const idea = createIdeaFromTrend(trend, industry, budget, region, skills, i);
-                ideas.push(idea);
+        function getIdea(industry, budget) {
+            // Если есть точное совпадение — берём его
+            if (businessDatabase[industry] && businessDatabase[industry][budget]) {
+                return businessDatabase[industry][budget];
             }
-
-            return ideas;
-        }
-
-        function createIdeaFromTrend(trend, industry, budget, region, skills, index) {
-            const templates = {
-                tech: [
-                    {
-                        title: `AI-ассистент для ${trend.keyword}`,
-                        description: `Создайте специализированного AI-ассистента для автоматизации процессов в сфере ${trend.keyword}. Используйте бесплатные API (OpenRouter, Hugging Face) для снижения costs.`,
-                        investment: budget === 'low' ? '20 000 - 50 000 ₽' : '100 000 - 300 000 ₽',
-                        monetization: 'Подписка SaaS, API-доступ',
-                        difficulty: 'Средняя'
-                    },
-                    {
-                        title: `No-code платформа ${trend.keyword}`,
-                        description: `Платформа, позволяющая создавать ${trend.keyword} без программирования. Целевая аудитория - малий бизнес.`,
-                        investment: '50 000 - 200 000 ₽',
-                        monetization: 'Freemium модель',
-                        difficulty: 'Низкая'
-                    }
-                ],
-                eco: [
-                    {
-                        title: `Маркетплейс ${trend.keyword}`,
-                        description: `Онлайн-платформа для покупки и продажи экологичных товаров с фокусом на ${trend.keyword}.`,
-                        investment: '30 000 - 100 000 ₽',
-                        monetization: 'Комиссия с продаж',
-                        difficulty: 'Низкая'
-                    }
-                ],
-                health: [
-                    {
-                        title: `App для ${trend.keyword}`,
-                        description: `Мобильное приложение для отслеживания и улучшения ${trend.keyword} с персонализированными рекомендациями.`,
-                        investment: '100 000 - 500 000 ₽',
-                        monetization: 'Подписка, in-app покупки',
-                        difficulty: 'Средняя'
-                    }
-                ],
-                edu: [
-                    {
-                        title: `Курсы по ${trend.keyword}`,
-                        description: `Онлайн-школа с микро-обучением по теме ${trend.keyword}. Используйте AI для персонализации.`,
-                        investment: '10 000 - 50 000 ₽',
-                        monetization: 'Продажа курсов',
-                        difficulty: 'Низкая'
-                    }
-                ],
-                food: [
-                    {
-                        title: `Сервис ${trend.keyword}`,
-                        description: `Доставка/подписка на ${trend.keyword} с AI-подбором рациона.`,
-                        investment: '50 000 - 200 000 ₽',
-                        monetization: 'Подписка, доставка',
-                        difficulty: 'Средняя'
-                    }
-                ],
-                retail: [
-                    {
-                        title: `Social commerce для ${trend.keyword}`,
-                        description: `Платформа продаж через соцсети с фокусом на ${trend.keyword}.`,
-                        investment: '20 000 - 100 000 ₽',
-                        monetization: 'Комиссия, реклама',
-                        difficulty: 'Низкая'
-                    }
-                ],
-                finance: [
-                    {
-                        title: `EdTech платформа ${trend.keyword}`,
-                        description: `Образовательная платформа для обучения ${trend.keyword} с gamification.`,
-                        investment: '30 000 - 150 000 ₽',
-                        monetization: 'Подписка, партнерства',
-                        difficulty: 'Средняя'
-                    }
-                ],
-                entertainment: [
-                    {
-                        title: `Контент-студия ${trend.keyword}`,
-                        description: `Агентство по созданию контента в формате ${trend.keyword} с использованием AI.`,
-                        investment: '10 000 - 80 000 ₽',
-                        monetization: 'Продажа контента, реклама',
-                        difficulty: 'Низкая'
-                    }
-                ]
-            };
-
-            const industryIdeas = templates[industry] || templates.tech;
-            const baseIdea = industryIdeas[index % industryIdeas.length];
             
-            return {
-                ...baseIdea,
-                trend: trend.keyword,
-                growth: trend.growth,
-                region: region
-            };
+            // Иначе берём ближайший бюджет
+            const budgets = ['micro', 'small', 'medium', 'large'];
+            const budgetIndex = budgets.indexOf(budget);
+            
+            for (let i = budgetIndex; i >= 0; i--) {
+                if (businessDatabase[industry] && businessDatabase[industry][budgets[i]]) {
+                    return businessDatabase[industry][budgets[i]];
+                }
+            }
+            
+            // Если ничего не нашли — берём первое доступное
+            return businessDatabase.tech.micro;
         }
 
-        function displayIdeas(ideas) {
+        function displayIdea(idea, format, skills) {
             const container = document.getElementById('ideasContainer');
-            container.innerHTML = '';
+            
+            const formatText = {
+                online: 'онлайн / удалённо',
+                offline: 'офлайн / точка продаж',
+                hybrid: 'гибридный формат'
+            };
 
-            ideas.forEach((idea, index) => {
-                const card = document.createElement('div');
-                card.className = 'idea-card';
-                card.innerHTML = `
-                    <div class="idea-title">${index + 1}. ${idea.title}</div>
-                    <div class="idea-description">${idea.description}</div>
-                    <div class="idea-meta">
-                        <span class="tag">💰 ${idea.investment}</span>
-                        <span class="tag">📈 ${idea.growth}</span>
-                        <span class="tag">🎯 ${idea.difficulty}</span>
-                        <span class="tag">💵 ${idea.monetization}</span>
+            container.innerHTML = `
+                <div class="idea-card">
+                    <div class="idea-title">
+                        ${idea.title}
+                        <span class="idea-badge">Бесплатно</span>
                     </div>
+                    
+                    <div class="concept-box">
+                        <div class="concept-title">💡 Концепция бизнеса</div>
+                        <div class="concept-content">${idea.concept}</div>
+                    </div>
+
+                    <div class="idea-description">${idea.description}</div>
+
+                    <div class="market-analysis">
+                        <div class="analysis-title">📊 Анализ рынка</div>
+                        <div>${idea.marketAnalysis}</div>
+                    </div>
+
+                    <div class="target-audience">
+                        <strong>🎯 Целевая аудитория:</strong><br>
+                        ${idea.targetAudience}
+                    </div>
+
+                    <div class="competitive-advantage">
+                        <strong>✅ Ваши преимущества:</strong><br>
+                        ${idea.advantages}
+                    </div>
+
+                    <div class="launch-strategy">
+                        <strong>🚀 Стратегия запуска (${formatText[format]}):</strong>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            ${idea.launchStrategy.map(step => `<li>${step}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 15px 20px; margin: 15px 0; border-radius: 0 8px 8px 0;">
+                        <strong>⚠️ Риски:</strong> ${idea.risks}
+                    </div>
+
+                    <div class="locked-content">
+                        <div class="lock-icon">🔐</div>
+                        <div class="locked-title">Финансовый план и расчёты</div>
+                        <div class="locked-description">
+                            Получите детальный бизнес-план с цифрами:<br>
+                            • Стартовые инвестиции (построчно)<br>
+                            • Ежемесячные расходы<br>
+                            • Прогноз доходов на 12 месяцев<br>
+                            • Точная окупаемость и ROI<br>
+                            • Готовый документ для инвесторов
+                        </div>
+                        <div class="price-tag">990 ₽/мес</div>
+                        <button class="btn" onclick="openPaymentModal()" style="margin-top: 15px;">
+                            Получить полный доступ
+                        </button>
+                    </div>
+
                     <button class="save-btn" onclick="saveIdea('${idea.title}')">
                         💾 Сохранить идею
                     </button>
-                `;
-                container.appendChild(card);
-            });
+                    <button class="share-btn" onclick="shareIdea('${idea.title}')">
+                        📤 Поделиться
+                    </button>
+                </div>
+            `;
         }
 
-        function displayTrends(trends) {
-            const container = document.getElementById('trendsContainer');
-            container.innerHTML = '';
-
-            trends.forEach(trend => {
-                const item = document.createElement('div');
-                item.className = 'trend-item';
-                item.innerHTML = `
-                    <span class="trend-arrow">↗️</span>
-                    <div style="flex: 1;">
-                        <strong>${trend.keyword}</strong>
-                        <div style="font-size: 0.9em; color: #666;">
-                            Рост: ${trend.growth} | Объем: ${trend.volume}
-                        </div>
-                    </div>
-                `;
-                container.appendChild(item);
-            });
+        function openPaymentModal() {
+            document.getElementById('paymentModal').classList.add('active');
         }
 
-        function updateStats(ideasCount, trendsCount) {
-            const currentIdeas = parseInt(document.getElementById('ideasCount').innerText);
-            document.getElementById('ideasCount').innerText = currentIdeas + ideasCount;
-            document.getElementById('trendsCount').innerText = trendsCount;
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+        }
+
+        function openTelegram() {
+            closePaymentModal();
+            document.getElementById('telegramModal').classList.add('active');
+        }
+
+        function closeTelegramModal() {
+            document.getElementById('telegramModal').classList.remove('active');
         }
 
         function saveIdea(title) {
             let saved = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
-            saved.push({
-                title: title,
-                date: new Date().toLocaleDateString()
-            });
-            localStorage.setItem('savedIdeas', JSON.stringify(saved));
-            alert('Идея сохранена! (хранится локально)');
-        }
-
-        function showPremium() {
-            document.getElementById('premiumModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('premiumModal').classList.remove('active');
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('premiumModal');
-            if (event.target === modal) {
-                closeModal();
+            if (!saved.find(i => i.title === title)) {
+                saved.push({
+                    title: title,
+                    date: new Date().toLocaleDateString()
+                });
+                localStorage.setItem('savedIdeas', JSON.stringify(saved));
+                alert('✓ Идея сохранена!');
+            } else {
+                alert('Эта идея уже в сохранённых');
             }
         }
 
+        function shareIdea(title) {
+            const text = `Посмотри бизнес-идею: ${title} на https://nickzay33-art.github.io/business-ideas-generator`;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Бизнес-идея',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(text);
+                alert('Ссылка скопирована!');
+            }
+        }
+
+        // Закрытие модалок по клику вне
+        window.onclick = function(event) {
+            if (event.target.classList.contains('telegram-modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+
+        // Инициализация
         document.addEventListener('DOMContentLoaded', () => {
-            const savedIdeas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
-            document.getElementById('ideasCount').innerText = savedIdeas.length;
+            const saved = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
+            document.getElementById('ideasCount').innerText = saved.length;
         });
     </script>
 </body>
